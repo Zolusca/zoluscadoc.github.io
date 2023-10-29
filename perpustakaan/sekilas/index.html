@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sekilas - naml</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sekilas";
+        var mkdocs_page_input_path = "perpustakaan/sekilas.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> naml
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Whats is this</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">License Validate Project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licensevalidate/licensevalidate/">License Validate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licensevalidate/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licensevalidate/install/">Tahap Penggunaan</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licensevalidate/api/">Api Documentation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tugas Perpustakaan Project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../perpustakaan/">Perpustakaan</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../install/">Tahap Penggunaan</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Sekilas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-logger">1. Logger</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-koneksi-database">2. Koneksi Database</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-enum-php-8">3. Enum PHP 8</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modeldanentity/">Model Dan Entity</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">naml</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tugas Perpustakaan Project</li>
+      <li class="breadcrumb-item active">Sekilas</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sekilas-tentang-proyek">Sekilas Tentang Proyek</h1>
+<h4 id="1-logger">1. <strong>Logger</strong></h4>
+<p>Logger dalam proyek ini menggunakan Monolog. File log disimpan di direktori 'writable/logApp/'. Saat aplikasi berjalan, semua log ditulis ke dalam satu file. Namun, ada masalah yang belum terselesaikan yaitu bagaimana membuat file log otomatis setiap kali aplikasi berjalan dengan nama file yang berbeda. Anda juga dapat melihat log melalui console.</p>
+<p>Untuk menonaktifkan output log ke file, Anda perlu mengomentari (//) baris kode berikut di file <code>App/Config/LoggerCreations.php</code>:</p>
+<pre><code class="language-php">$logger-&gt;pushHandler(new \Monolog\Handler\StreamHandler(WRITEPATH.&quot;logsApp/logapp.log&quot;));
+</code></pre>
+<p>Jika Anda ingin mengganti log ke log bawaan framework, silakan periksa file 'App/config/logger'. Di sana, output file dari logger framework sudah dinonaktifkan. Pastikan membaca dokumentasi framework untuk cara menggunakan log bawaan.</p>
+<h4 id="2-koneksi-database">2. <strong>Koneksi Database</strong></h4>
+<p>Koneksi ke database diimplementasikan menggunakan pola singleton yang didefinisikan di Service (config), yang dapat ditemukan di 'App/Config/Services'. Saya tidak yakin apakah pendekatan ini sudah benar atau tidak. Namun, yang ingin dicapai adalah pembuatan koneksi diatur di sana dengan batasan maksimum koneksi. yang saya tahu tidak ada konsep connection pool di php.</p>
+<h4 id="3-enum-php-8">3. <strong>Enum PHP 8</strong></h4>
+<p>pada project ini saya menggunakan php versi 8.2 yang mana fitur enum sudah disediakan, disini jika kalian masih menggunakan versi php &lt;8.1 yang tidak memiliki fitur enum. Yang kalian harus lakukan adalah mengganti schema database yang memiliki enum juga ke entity yang bersangkutan. Silahkan ganti dengan '1'=&gt;'admin' misalnya.
+pada schema user misalnya kalian ganti ke 1 representasi admin dan 2 anggota lalu pergi ke 'app/entity/userEntity' pada createObject method ganti pembuatan attributes dengan value kalian. Dan Jangan lupa hapus file enum pada 'App/Entity/Enum'</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../install/" class="btn btn-neutral float-left" title="Tahap Penggunaan"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../modeldanentity/" class="btn btn-neutral float-right" title="Model Dan Entity">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../install/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../modeldanentity/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
